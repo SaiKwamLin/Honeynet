@@ -12,19 +12,27 @@ The snapshots consists of the metrics for following events:
 ## Diagram of the lab
 
 
-## Architecture Before Hardening / Security Controls
+## Topology Before Hardening / Security Controls
 This is the topology of the lab before implementing security controls. The resources are out there completely exposed to the internet. The virtual machines's Network Security Groups and built-in firewalls are configured to allow all inbound traffic. Azure Key Vault and Storage Account are deployed with public endpoints visible to the Internet.
-![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
+![Before Topology](images/topology_before.png)
 
 
-## Architecture After Hardening / Security Controls
+## Topology After Hardening / Security Controls
 This is the topology of the lab after implementing security controls. The resources are now secured and are no longer exposed to the internet. The virtual machines's Network Security Grups are configured to only allow traffic from my personal computer. In addition, a Netowrk Security Group is added to the subnet. Azure Key Vault and Storage Account are secured by enabling private link and firewall configurations.
-![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
+![After Topology](images/topology_after.png)
 
 ## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
-![Linux Syslog Auth Failures](https://i.imgur.com/G1YgZt6.png)<br>
-![Windows RDP/SMB Auth Failures](https://i.imgur.com/ESr9Dlv.png)<br>
+<b>Attack map of malicious actors's failed attempt at brute-forcing through Windows VM via RDP</b>
+![Windows RDP/SMB Auth Failures](images/windows-rdp-auth-fail.png)<br>
+
+<b>Attack map of malicious actors's failed attempt at brute-forcing through Linux VM via SSH</b>
+![Linux Syslog Auth Failures](images/linux-ssh-auth-fail.png)<br>
+
+<b>Attack map of malicious actors's failed attempt at brute-forcing through SQL Database </b>
+![Mssql Auth Failures](images/mssql-auth-fail.png)<br>
+
+<b>Attack map of all malicious traffic allowed by the Network Security Group</b>
+![NSG Allowed Inbound Malicious Flows](images/nsg-malicious-allowed-in1.png)<br>
 
 ## Snapshot Before Hardening / Security Controls
 The following table shows the metrics we measured in our insecure environment for 24 hours:
